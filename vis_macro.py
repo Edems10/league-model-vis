@@ -339,8 +339,10 @@ def visualize_predictions(model: torch.nn.Module,
     output_image_size = (1000, 1000)  # height, width
     champion_icon_image_size = (40, 40)
     team_colors = (255, 0, 0), (0, 0, 255)  # blue, red in opencv bgr format
-    prediction_color = (255, 190, 220)
-    ground_truth_color = (48, 130, 245)
+    prediction_color = (0, 255, 0)
+    ground_truth_color = (0, 0, 255) if fow_model else (0, 255, 255)
+
+    
     # Prepare champion icons for game state visualization
     champion_names = data_dragon.get_champion_names()
     champion_imgs_dict = data_dragon.get_champion_images()
@@ -637,4 +639,14 @@ def prediction_visualization(game_id,fow_model=True,number_of_proababilities=5):
 
 
 
-prediction_visualization(3120261,fow_model=True)
+def main():
+    if len(sys.argv) == 1:
+        print("No arguments were provided.")
+    else:
+        game_id, fow_model = sys.argv[1], sys.argv[2]
+    prediction_visualization(game_id = 3120261,fow_model=True)
+
+if __name__ == "__main__":
+    main()
+
+
