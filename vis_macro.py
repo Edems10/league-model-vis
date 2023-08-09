@@ -644,7 +644,14 @@ def main():
         print("No arguments were provided.")
     else:
         game_id, fow_model = sys.argv[1], sys.argv[2]
-    prediction_visualization(game_id = 3120261,fow_model=True)
+    fow_model_states = [True,False]
+    for fow_model_state in fow_model_states:
+        #prediction_visualization(game_id = 3120261,fow_model=fow_model_state)
+        prediction_visualization(game_id = 3125368,fow_model=fow_model_state)
+        prediction_visualization(game_id = 3120261,fow_model=fow_model_state)
+        prediction_visualization(game_id = 3118326,fow_model=fow_model_state)
+        prediction_visualization(game_id = 3117488,fow_model=fow_model_state)
+    
 
 if __name__ == "__main__":
     main()
